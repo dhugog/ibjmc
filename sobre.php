@@ -3,13 +3,13 @@
     <head>
         <?php
         DEFINE('LIVE', true);
-        require('includes/config.inc.php');
-        require('includes/styles.html');
+        require_once 'includes/config.inc.php';
+        require_once 'includes/styles.html';
         ?>
         <title>IBJMC - Sobre</title>
     </head>
     <body>
-        <?php include('includes/header.php'); ?>
+        <?php include_once 'includes/header.php'; ?>
         <section id="main-sec">
             <article id="sobre">
                 <h2>Nossa Missão</h2>
@@ -29,6 +29,6 @@
                 </ul>
             </article>
         </section>
-        <?php include('includes/footer.html'); ?>
+        <?php include_once 'includes/footer.html'; ?>
     </body>
 </html>

@@ -3,8 +3,8 @@
     <head>
         <?php
         DEFINE('LIVE', true);
-        require('includes/config.inc.php');
-        require('includes/styles.html');
+        require_once 'includes/config.inc.php';
+        require_once 'includes/styles.html';
         ?>
         <title>IBJMC - Ao vivo</title>
         <style>
@@ -31,7 +31,7 @@
         </style>
     </head>
     <body>
-        <?php include('includes/header.php'); ?>
+        <?php include_once 'includes/header.php'; ?>
         <section id="main-sec">
             <article>
                 <h2>Você está assistindo ao culto...</h2>
@@ -40,6 +40,6 @@
                 </div>
             </article>
         </section>
-        <?php include('includes/footer.html'); ?>
+        <?php include_once 'includes/footer.html'; ?>
     </body>
 </html>

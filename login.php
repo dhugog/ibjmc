@@ -2,9 +2,10 @@
 <html>
     <head>
         <?php
-        DEFINE('LIVE', true);
-        require_once('includes/config.inc.php');
-        require_once('includes/styles.html');
+        DEFINE('LIVE', false);
+        require_once 'includes\config.inc.php';
+        require_once BASE_URI . 'includes\styles.html';
+        require_once BASE_URI . 'model\bean\Usuario.class.php';
         ?>
         <link rel="stylesheet" href="css/forms.css" />
         <title>IBJMC - Login</title>
@@ -21,7 +22,7 @@
         </style>
     </head>
     <body>
-        <?php include_once('includes/header.php'); ?>
+        <?php include_once 'includes/header.php'; ?>
         <section id="main-sec">
             <article>
                 <div class="box">
@@ -73,25 +74,21 @@
         </section>
         <?php
         if (filter_has_var(INPUT_POST, 'cadastro')) {
-            $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-            
-            if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-                $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-            } else {
-                echo "<span class='invalido'>Digite um e-mail válido.</span>";
-            }
-            
-            if ($_POST['pass'] == $_POST['cpass']) {
-                $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-            } else {
+            if(!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
+                echo "<span class='invalido'>E-mail inválido. Tente novamente.</span>";
+            } elseif($_POST['pass'] != $_POST['cpass']) {
                 echo "<span class='invalido'>Senhas não correspondentes. Tente novamente.</span>";
+            } else {
+                $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+                $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+                $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+                $nasc = date('Y-m-d', strtotime(filter_input(INPUT_POST, 'nasc', FILTER_SANITIZE_SPECIAL_CHARS)));
+                $sexo = $_POST['sexo'];
+                $membro = $_POST['membro'];
+
+                $usuario = new Usuario($nome, $email, $senha, $nasc, $sexo, $membro);
             }
-            
-            $nasc = date('Y-m-d', strtotime(filter_input(INPUT_POST, 'nasc', FILTER_SANITIZE_SPECIAL_CHARS)));
-            
-            $sexo = $_POST['sexo'];
-            $membro = $_POST['membro'];
-        } 
+        }
         
         elseif (filter_has_var(INPUT_POST, 'login')) {
             if(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
@@ -103,6 +100,6 @@
             $senha = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
         }
         ?>
-        <?php include_once('includes/footer.html'); ?>
+        <?php include_once 'includes/footer.html'; ?>
     </body>
 </html>
