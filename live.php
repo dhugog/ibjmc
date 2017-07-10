@@ -2,9 +2,8 @@
 <html>
     <head>
         <?php
-        DEFINE('LIVE', true);
         require_once 'includes/config.inc.php';
-        require_once 'includes/styles.html';
+        require_once BASE_URI . 'includes\styles.inc.html';
         ?>
         <title>IBJMC - Ao vivo</title>
         <style>

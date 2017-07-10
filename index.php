@@ -2,9 +2,8 @@
 <html>
     <head>
         <?php
-        DEFINE('LIVE', false);
         require_once 'includes\config.inc.php';
-        require_once BASE_URI . 'includes\styles.html';
+        require_once BASE_URI . 'includes\styles.inc.html';
         require_once BASE_URI . 'model\bean\Versiculo.class.php';
         require_once BASE_URI . 'model\dao\VersiculoDAO.class.php';
         ?>

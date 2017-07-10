@@ -1,15 +1,15 @@
 <meta charset="UTF-8" />
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 error_reporting(0);
 ini_set("display_errors", 0);
 
-if (!defined('LIVE'))
-    DEFINE('LIVE', false);
+DEFINE('LIVE', true);
 
-DEFINE('EMAIL_CONTATO', 'email@contato.com');
+DEFINE('EMAIL_CONTATO', 'daniel_hugo.gasparotto@hotmail.com');
+DEFINE('EMAIL_SENHA', 'miuvze5q');
 DEFINE('BASE_URI', 'C:\xampp\htdocs\IBJMC\\');
 DEFINE('BASE_URL', 'localhost/IBJMC/');
-DEFINE('MYSQL', BASE_URI . 'includes\mysql.inc.php');
 
 session_start();
 

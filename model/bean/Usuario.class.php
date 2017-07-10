@@ -8,6 +8,8 @@ class Usuario {
     private $nasc;
     private $sexo;
     private $membro;
+    private $verificado;
+    private $ultimoAcesso;
     
     public function __construct($nome, $email, $senha, $nasc, $sexo, $membro) {
         $this->nome = $nome;
@@ -46,6 +48,14 @@ class Usuario {
         return $this->membro;
     }
 
+    function getVerificado() {
+        return $this->verificado;
+    }
+
+    function getUltimoAcesso() {
+        return $this->ultimoAcesso;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -72,5 +82,13 @@ class Usuario {
 
     function setMembro($membro) {
         $this->membro = $membro;
+    }
+
+    function setVerificado($verificado) {
+        $this->verificado = $verificado;
+    }
+
+    function setUltimoAcesso($ultimoAcesso) {
+        $this->ultimoAcesso = $ultimoAcesso;
     }
 }

@@ -2,9 +2,8 @@
 <html>
     <head>
         <?php
-        DEFINE('LIVE', true);
         require_once 'includes/config.inc.php';
-        require_once 'includes/styles.html';
+        require_once BASE_URI . 'includes\styles.inc.html';
         ?>
         <link rel="stylesheet" href="css/forms.css" />
         <title>IBJMC - Contato</title>
@@ -16,9 +15,9 @@
                 <div class="box">
                     <form>
                         <fieldset>
-                            <legend>Envie sua mensagem abaixo</legend>
+                            <legend id="legenda-login">Envie sua mensagem abaixo</legend>
                             <?php
-                            if (isset($_SESSION['id_usuario'])) {
+                            if(isset($_SESSION['usuario'])) {
                                 ?>
                                 <p>Assunto<input name="assunto" id="assunto" required /></p>
                                 <p>Mensagem<textarea id="msg" name="msg" required></textarea></p>
