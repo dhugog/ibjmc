@@ -79,6 +79,8 @@ elseif (filter_has_var(INPUT_POST, 'btnLogin')) {
                 header("Location: login.php");
                 exit;
             } elseif($vUser > 0) {
+                $userId = $_SESSION['usuario']['id_usuario'];
+                UsuarioDAO::update("ultimo_acesso = NOW()", "id_usuario = $userId");
                 header("Location: index.php");
                 exit;
             } else {

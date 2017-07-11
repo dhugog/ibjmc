@@ -11,13 +11,15 @@ header {
 }
 
 header #logo {
-    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     line-height: 10px;
+    text-align: center;
 }
 
 header #logo img {
-    width: 95px;
-    margin-top: -7px;
+    width: 85px;
 }
 
 header #logo h1 {
@@ -74,7 +76,7 @@ header #btn-menu-toggle div {
     z-index: 999;
     position: fixed;
     width: 100%;
-    top: -242px;
+    top: -187px;
     line-height: 60px;
     background-color: rgb(240, 240, 240);
     box-sizing: border-box;
@@ -109,60 +111,57 @@ header #btn-menu-toggle div {
     background-color: rgba(0,0,0,.05);
 }
 
-header #nav-bar {
-    position: fixed;
-    right: 10px;
-    top: 0;
-}
-
 header #nav-bar ul {
     list-style: none;
+    height: 100%;
 }
 
 header #nav-bar ul li {
     display: inline-block;
     cursor: pointer;
-}
-
-header #nav-bar ul li #menu-item-home::before {
-    content: url("../imgs/icons/home.png");
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-header #nav-bar ul li #menu-item-live::before {
-    content: url("../imgs/icons/tv.png");
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-header #nav-bar ul li #menu-item-contato::before {
-    content: url("../imgs/icons/contato.png");
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-header #nav-bar ul li #menu-item-login::before {
-    content: url("../imgs/icons/login.png");
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-header #nav-bar ul li #menu-item-sobre::before {
-    content: url("../imgs/icons/about.png");
-    vertical-align: middle;
-    margin-right: 6px;
+    height: 100%;
 }
 
 header #nav-bar li a {
+    display: block;
+    height: 100%;
     color: #444;
     text-decoration: none;
     font-size: 12pt;
     font-family: Arial;
     font-weight: bold;
-    padding: 20px 8px;
+    padding: 0 8px;
 }
 
-header #nav-bar li a:hover {
+header #nav-bar li:hover {
     border-bottom: 2px solid #444;
+}
+
+header #nav-bar ul li a::before {
+    vertical-align: middle;
+    margin-right: 5px;    
+}
+
+header #nav-bar ul li #menu-item-home::before {
+    content: url("../imgs/icons/home.png");
+}
+
+header #nav-bar ul li #menu-item-live::before {
+    content: url("../imgs/icons/tv.png");
+}
+
+header #nav-bar ul li #menu-item-contato::before {
+    content: url("../imgs/icons/contato.png");
+}
+
+header #nav-bar ul li #menu-item-login::before {
+    content: url("../imgs/icons/login.png");
+}
+
+header #nav-bar ul li #menu-item-sobre::before {
+    content: url("../imgs/icons/about.png");
+}
+
+header #nav-bar ul li #menu-item-conta::before {
+    content: url("../imgs/icons/arrow.png");
 }

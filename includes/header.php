@@ -36,7 +36,15 @@
             <li><a href="live.php" id="menu-item-live">Ao vivo</a></li>
             <li><a href="fale-conosco.php" id="menu-item-contato">Fale conosco</a></li>
             <li><a href="sobre.php" id="menu-item-sobre">Sobre nós</a></li>
-            <li><a href="login.php" id="menu-item-login">Login</a></li>
+            <?php
+                if(isset($_SESSION['usuario'])) { ?>
+                    <li><a href="#" id="menu-item-conta">Minha conta</a></li>
+            <?php
+                } else { ?>
+                    <li><a href="login.php" id="menu-item-login">Login</a></li>
+            <?php
+                }
+            ?>
         </ul>
     </nav>
 </header>
