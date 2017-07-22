@@ -34,17 +34,34 @@ header #logo h1 {
     box-shadow: 0px 0px 1px rgba(0,0,0,.3);
 }
 
-header #btn-menu-toggle {
+/* Menu */
+
+header #div-menu-toggle {
     position: absolute;
     top: 0;
     left: 15px;
+    height: 100%;
+    cursor: pointer;
+}
+
+header #div-menu-toggle span {
+    float: left;
+    margin-left: 5px;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 16pt;
+    color: #222;
+}
+
+header #btn-menu-toggle {
+    float: left;
+    position: relative;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     height: 100%;
     width: 30px;
     padding: 15px 0;
-    cursor: pointer;
     box-sizing: border-box;
 }
 
@@ -59,6 +76,7 @@ header #btn-menu-toggle div {
     border-radius: 3px;
     transition: all .4s;
 }
+
 
 @-moz-keyframes toggleMenu {
     25% {transform: rotate(20deg);}
@@ -100,7 +118,7 @@ header #btn-menu-toggle div {
     line-height: 45px;
 }
 
-#nav-menu table th, td {
+#nav-menu table th, #nav-menu table td {
     text-align: center;
     font-family: Arial;
     border-right: 1px solid #888;
@@ -109,6 +127,22 @@ header #btn-menu-toggle div {
 #nav-menu table td:hover {
     cursor: pointer;
     background-color: rgba(0,0,0,.05);
+}
+
+/* Nav bar */
+
+header #nav-bar {
+    position: absolute;
+    height: 100%;
+    right: 10px;
+    top: 0;
+    box-sizing: border-box;
+}
+
+header #nav-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
 }
 
 header #nav-bar ul#nav-bar-menu {
@@ -122,7 +156,15 @@ header #nav-bar ul#nav-bar-menu li {
     height: 100%;
 }
 
-header #nav-bar ul#nav-bar-menu li a {
+header #nav-bar ul#nav-bar-menu li:hover {
+    border-bottom: 2px solid #444;
+}
+
+header #nav-bar ul#nav-bar-menu li#item-conta:hover {
+    border-bottom: none;
+}
+
+header #nav-bar ul#nav-bar-menu li .nav-bar-items {
     display: block;
     height: 100%;
     color: #444;
@@ -133,39 +175,96 @@ header #nav-bar ul#nav-bar-menu li a {
     padding: 0 8px;
 }
 
-header #nav-bar ul#nav-bar-menu li:hover {
-    border-bottom: 2px solid #444;
-}
-
-header #nav-bar ul#nav-bar-menu li#item-conta:hover {
-    border-bottom: none;
-}
-
-header #nav-bar ul#nav-bar-menu li a::before {
+header #nav-bar ul li .nav-bar-items::before {
     vertical-align: middle;
     margin-right: 5px;    
 }
 
 header #nav-bar ul#nav-bar-menu li #menu-item-home::before {
-    content: url("../imgs/icons/home.png");
+    content: url("../../imgs/icons/home.png");
 }
 
 header #nav-bar ul#nav-bar-menu li #menu-item-live::before {
-    content: url("../imgs/icons/tv.png");
+    content: url("../../imgs/icons/tv.png");
 }
 
 header #nav-bar ul#nav-bar-menu li #menu-item-contato::before {
-    content: url("../imgs/icons/contato.png");
+    content: url("../../imgs/icons/contato.png");
 }
 
 header #nav-bar ul#nav-bar-menu li #menu-item-login::before {
-    content: url("../imgs/icons/login.png");
+    content: url("../../imgs/icons/login.png");
 }
 
 header #nav-bar ul#nav-bar-menu li #menu-item-sobre::before {
-    content: url("../imgs/icons/about.png");
+    content: url("../../imgs/icons/about.png");
 }
 
-header #nav-bar ul#nav-bar-menu li #menu-item-conta::before {
-    content: url("../imgs/icons/arrow.png");
+header #nav-bar ul#nav-bar-menu li .menuToggled::before {
+    display: inline-block;
+    background-image: url("../../imgs/icons/arrow.png");
+    width: 14px;
+    height: 14px;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    content: "";
 }
+
+header #nav-bar ul#nav-bar-menu li .menuHidden::before {
+    display: inline-block;
+    background-image: url("../../imgs/icons/arrow.png");
+    width: 14px;
+    height: 14px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    content: "";
+}
+
+/* Menu minha conta */
+
+@keyframes toggleMenuConta {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes hideMenuConta {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+header #nav-bar ul#nav-bar-menu li#item-conta {
+    position: relative;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta {
+    display: block;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta li {
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    box-sizing: border-box;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-family: Segoe UI, Arial;
+    font-weight: normal;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta li:hover {
+    border: none;
+    background-color: rgba(0,0,0,.7);
+}
+

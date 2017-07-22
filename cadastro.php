@@ -31,8 +31,11 @@ if (filter_has_var(INPUT_POST, 'btnCadastro')) {
 
         $usuario = new Usuario($nome, $email, $senha, $nasc, $sexo, $membro);
         $reg = UsuarioDAO::checkReg($usuario);
-        if($reg == 0 && UsuarioDAO::create($usuario)) { 
-            $mail = prepareMail($usuario->getEmail(), $usuario->getNome(), $usuario->getSenha());
+        if($reg == 0 && UsuarioDAO::create($usuario)) {
+            $msg = "Olá, " . $nome . "<br>"
+            . "<p>Confirme seu e-mail no link abaixo<p>"
+            . "<a href='http://192.168.0.2/IBJMC/verificacao-email.php?email=$email&codigo=$senha'>IBJMC - Confirmar e-mail</a>";
+            $mail = prepareMail($email, "Confirmação de e-mail - IBJMC", $msg);
             if($mail->Send()) {
                 $_SESSION['success'] = 'verificacaoEmail';
                 header('Location: login.php');

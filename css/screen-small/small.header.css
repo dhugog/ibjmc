@@ -1,0 +1,259 @@
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: white;
+    box-shadow: 0px 1px 5px rgba(0,0,0,.3);
+    box-sizing: border-box;
+}
+
+header #logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 10px;
+    text-align: center;
+}
+
+header #logo h1 {
+    display: none;
+}
+
+header #logo img {
+    margin-top: 5px;
+    width: 75px;
+}
+
+/* Menu */
+
+header #div-menu-toggle {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: 100%;
+    cursor: pointer;
+}
+
+header #div-menu-toggle span {
+    float: left;
+    margin-left: 5px;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+header #btn-menu-toggle {
+    float: left;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+    width: 30px;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+header #btn-menu-toggle:hover {
+    animation: toggleMenu .6s;
+}
+
+header #btn-menu-toggle div {
+    height: 3px;
+    width: 100%;
+    background-color: #444;
+    border-radius: 3px;
+    transition: all .4s;
+}
+
+/* Menu */
+@-moz-keyframes toggleMenu {
+    25% {transform: rotate(20deg);}
+    50% {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg);}
+}
+
+@-webkit-keyframes toggleMenu {
+    25% {transform: rotate(20deg);}
+    50% {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg);}
+}
+
+#nav-menu {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: -187px;
+    line-height: 60px;
+    background-color: rgb(240, 240, 240);
+    box-sizing: border-box;
+    transition: top .4s;
+}
+
+#nav-menu table {
+    width: 100%;
+    border-bottom: 1px solid #ABABAB;
+    border-collapse: collapse;
+}
+
+#nav-menu table th {
+    font-size: 16pt;
+    border-bottom: 1px solid #777;
+    background-color: rgb(235, 230, 255);
+    line-height: 50px;
+}
+
+#nav-menu table td {
+    line-height: 45px;
+}
+
+#nav-menu table th, #nav-menu table td {
+    text-align: center;
+    font-family: Arial;
+    border-right: 1px solid #888;
+}
+
+#nav-menu table td:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,.05);
+}
+
+/* Nav bar */
+header #nav-bar {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    top: 60px;
+    background-color: #FFF;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+    box-sizing: border-box;
+}
+
+header #nav-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+header #nav-bar ul#nav-bar-menu {
+    list-style: none;
+    height: 100%;
+}
+
+header #nav-bar ul#nav-bar-menu li {
+    display: inline-block;
+    cursor: pointer;
+    height: 100%;
+}
+
+header #nav-bar ul#nav-bar-menu li:hover {
+    border-bottom: 2px solid #444;
+}
+
+header #nav-bar ul#nav-bar-menu li#item-conta:hover {
+    border-bottom: none;
+}
+
+header #nav-bar ul#nav-bar-menu li .nav-bar-items {
+    display: block;
+    height: 100%;
+    color: #444;
+    text-decoration: none;
+    font-size: 12pt;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+header #nav-bar ul li .nav-bar-items::before {
+    vertical-align: middle;
+    margin-right: 0px;    
+}
+
+header #nav-bar ul#nav-bar-menu li #menu-item-home::before {
+    content: url("../../imgs/icons/home.png");
+}
+
+header #nav-bar ul#nav-bar-menu li #menu-item-live::before {
+    content: url("../../imgs/icons/tv.png");
+}
+
+header #nav-bar ul#nav-bar-menu li #menu-item-contato::before {
+    content: url("../../imgs/icons/contato.png");
+}
+
+header #nav-bar ul#nav-bar-menu li #menu-item-login::before {
+    content: url("../../imgs/icons/login.png");
+}
+
+header #nav-bar ul#nav-bar-menu li #menu-item-sobre::before {
+    content: url("../../imgs/icons/about.png");
+}
+
+header #nav-bar ul#nav-bar-menu li .menuToggled::before {
+    display: inline-block;
+    background-image: url("../../imgs/icons/arrow.png");
+    width: 14px;
+    height: 14px;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    content: "";
+}
+
+header #nav-bar ul#nav-bar-menu li .menuHidden::before {
+    display: inline-block;
+    background-image: url("../../imgs/icons/arrow.png");
+    width: 14px;
+    height: 14px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    content: "";
+}
+
+/* Menu minha conta */
+@keyframes toggleMenuConta {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes hideMenuConta {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta {
+    display: block;
+    z-index: -1;
+    position: absolute;
+    width: 110px;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta li {
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    box-sizing: border-box;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-family: Segoe UI, Arial;
+    font-weight: normal;
+}
+
+header #nav-bar ul#nav-bar-menu li ul#menu-conta li:hover {
+    border: none;
+    background-color: rgba(0,0,0,.7);
+}

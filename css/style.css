@@ -21,11 +21,9 @@ body {
     color: #333;
     padding-top: 20px;
     font-family: Roboto, Arial, sans-serif;
-    word-break: break-all;
-    -ms-word-break: break-all;
-    word-break: break-word;
     box-sizing: border-box;
 }
+
 
 #main-sec {
     min-height: 54%;
@@ -41,6 +39,12 @@ body {
     margin: 0 auto;
     padding: 15px 0px;
     box-sizing: border-box;
+}
+
+#main-sec article p {
+    word-break: break-all;
+    -ms-word-break: break-all;
+    word-break: break-word;
 }
 
 #main-sec article#sobre h2 {
@@ -61,6 +65,7 @@ body {
 #main-sec article#sobre p {
     text-indent: 1em;
     padding: 20px;
+    text-align: justify;
 }
 
 #main-sec article#sobre ul {

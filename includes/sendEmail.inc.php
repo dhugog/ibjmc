@@ -2,7 +2,7 @@
 
 require BASE_URI . 'PHPMailer\PHPMailerAutoload.php';
 
-function prepareMail($emailDestinatario, $nomeDestinatario, $senhaDestinatario) {
+function prepareMail($to, $subject, $msg) {
 
     $mail = new PHPMailer;
 
@@ -19,13 +19,10 @@ function prepareMail($emailDestinatario, $nomeDestinatario, $senhaDestinatario) 
     $mail->IsHTML(true); // Informa se vamos enviar mensagens usando HTML
 
     $mail->From = EMAIL_CONTATO; // Email do Remetente
-    $mail->FromName = 'Daniel'; // Nome do Remetente
+    $mail->FromName = 'IBJMC'; // Nome do Remetente
 
-    $mail->addAddress($emailDestinatario); // Endereço do e-mail do destinatário
-    $mail->Subject = 'Confirmação de e-mail - IBJMC'; // Assunto do e-mail
-    $msg = "Olá, " . $nomeDestinatario . "<br>"
-            . "<p>Confirme seu e-mail no link abaixo<p>"
-            . "<a href='http://192.168.0.8/IBJMC/verificacao-email.php?email=$emailDestinatario&codigo=$senhaDestinatario'>IBJMC - Confirmar e-mail</a>";
+    $mail->addAddress($to); // Endereço do e-mail do destinatário
+    $mail->Subject = $subject; // Assunto do e-mail
 
     $mail->msgHTML($msg); // Mensagem que vai no corpo do e-mail
 

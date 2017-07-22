@@ -4,10 +4,10 @@
         <?php
         require_once 'includes\config.inc.php';
         require_once BASE_URI . 'includes\styles.inc.html';
-        require_once BASE_URI . 'model\bean\Versiculo.class.php';
         require_once BASE_URI . 'model\dao\VersiculoDAO.class.php';
         ?>
-        <link rel="stylesheet" href="css/index.css" />
+        <link rel='stylesheet' media='screen and (min-width:645px)' href='css/screen-large/large.index.css' />
+        <link rel='stylesheet' media='screen and (max-width:644px)' href='css/screen-small/small.index.css' />
         <title>IBJMC</title>
     </head>
     <body>

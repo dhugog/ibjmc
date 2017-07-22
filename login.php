@@ -9,37 +9,11 @@
             exit;
         }
         ?>
-        <link rel="stylesheet" href="css\forms.css" />
+        <link rel="stylesheet" media="screen and (min-width:712px)" href="css/screen-large/large.forms.css" />
+        <link rel="stylesheet" media="screen and (max-width:711px)" href="css/screen-small/small.forms.css" />
         <title>IBJMC - Login</title>
         <script src="js/mask_form.js"></script>
-        <style>
-            .invalido {
-                display: block;
-                color: red;
-                font-size: 16pt;
-                font-weight: bold;
-                text-align: center;
-                padding: 10px 0;
-                background-color: rgba(255,255,255,.2);
-                box-sizing: border-box;
-            } 
-            
-            .valido {
-                display: block;
-                color: green;
-                font-size: 16pt;
-                font-weight: bold;
-                text-align: center;
-                padding: 10px 0;
-                background-color: rgba(255,255,255,.2);
-                box-sizing: border-box;
-            } 
-        </style>
-        <script type='text/javascript'>
-            function toggleWrapper(display) {
-                document.getElementById('wrapper').style.display = display;
-            }
-        </script>
+        <script type='text/javascript' src="js/utils.js"></script>
     </head>
     <body>
         <?php include_once 'includes/header.php'; ?>
@@ -49,8 +23,8 @@
                     <div id="wrapper"></div>
                     <form method="post" action="cadastro.php" id="login" onSubmit="toggleWrapper('block'); btnLogin.value='Entrando... Aguarde'">
                         <fieldset>
-                            <legend id="legenda-login">Fazer login</legend>
-                            <p>Email <input type="email" id="email" name="email" required /></p>
+                            <legend class="main-legend">Fazer login</legend>
+                            <p>E-mail <input type="email" id="email" name="email" required /></p>
                             <p>Senha <input type="password" id="pass" name="pass" required /></p>
                             <p><input type="submit" value="Entrar" id="btnLogin" name="btnLogin" /></p>
                         </fieldset>
@@ -58,27 +32,25 @@
                     <aside>
                         <form method="post" action="cadastro.php" id="cadastro" onSubmit="toggleWrapper('block'); btnCadastro.value='Cadastrando... Aguarde'">
                             <fieldset>
-                                <legend id="legenda-cadastro">Registrar-se</legend>
+                                <legend class="aside-legend">Registrar-se</legend>
                                 <p>Nome <input type="text" id="nome" name="nome" placeholder="Nome completo" required /></p>
-                                <p>Email <input type="email" id="email" name="email" required /></p>
+                                <p>E-mail <input type="email" id="email" name="email" required /></p>
                                 <table>
                                     <tr>
-                                        <th><p id="psenha">Senha</p></th>
-                                        <th><p id="pcsenha">Confirmar senha</p></th>
+                                        <td><p>Senha <input type="password" id="pass" name="pass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></p></td>
+                                        <td><p>Confirmar senha <input type="password" id="cpass" name="cpass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></p></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="password" id="pass" name="pass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></td>
-                                        <td><input type="password" id="cpass" name="cpass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></td>
+                                        <td><p style="padding-bottom: 0;">Data de nascimento</p></td>
+                                        <td><p style="padding-bottom: 0;">Sexo</p></td>
                                     </tr>
                                     <tr>
-                                        <th><p id="pnasc">Data de nascimento</p></th>
-                                        <th><p>Sexo</p></th>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="text" onKeyPress="mask(this, maskDate)" placeholder="dd/mm/aaaa" id="nasc" name="nasc" maxlength="10" pattern=".{10}" title="Insira a data corretamente." required /></td>
+                                        <td><p><input type="tel" onKeyUp="mask(this, maskDate)" placeholder="dd/mm/aaaa" id="nasc" name="nasc" maxlength="10" pattern=".{10}" title="Insira a data corretamente." required /></p></td>
                                         <td>
-                                            <input type="radio" name="sexo" id="masc" value="m" checked /> <label for="masc">Masculino</label>
-                                            <input type="radio" name="sexo" id="fem" value="f" /> <label for="fem">Feminino</label>
+                                            <p style="text-align: center;">
+                                                <input type="radio" name="sexo" id="masc" value="m" checked /> <label for="masc">Masculino</label>
+                                                <input type="radio" name="sexo" id="fem" value="f" /> <label for="fem">Feminino</label>
+                                            </p>
                                         <td>
                                     </tr>
                                 </table>
@@ -93,8 +65,11 @@
                 </div>
             </article>
         </section>
+        <section id="alert-sec">
         <?php
-            if(isset($_SESSION['erro'])) {
+            if(isset($_SESSION['erro'])) { ?>
+                <script>window.location.href = '#alert-sec';</script>
+                <?php
                 $erro = $_SESSION['erro'];
                 if($erro == 'systemError') {
                     echo "<span class='invalido'>Ocorreu um erro no sistema. Desculpe-nos o transtorno.</span>";
@@ -120,7 +95,9 @@
                     echo "<span class='invalido'>E-mail ou senha inválida. Tente novamente.</span>";
                 }
                 unset($_SESSION['erro']);
-            } elseif(isset($_SESSION['success'])) {
+            } elseif(isset($_SESSION['success'])) { ?>
+                <script>window.location.href = '#alert-sec';</script>
+                <?php
                 $alert = $_SESSION['success'];
                 if($alert == 'verificacaoEmail') {
                     echo "<span class='valido'>Cadastro realizado com sucesso!</br>Enviamos a você um e-mail de confirmação. Por favor, verifique antes de prosseguir.</span>";
@@ -132,6 +109,7 @@
                 unset($_SESSION['success']);
             }
         ?>
+        </section>
         <?php include_once 'includes/footer.html'; ?>
     </body>
 </html>
