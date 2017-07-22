@@ -8,7 +8,10 @@ if(!empty($_GET)) {
     $senha = $_GET['senha'];
     $nome = $_GET['nome'];
     
-    $mail = prepareMail($email, $nome, $senha);
+    $msg = "Olá, " . $nome . "<br>"
+    . "<p>Confirme seu e-mail no link abaixo<p>"
+    . "<a href='http://192.168.0.2/IBJMC/verificacao-email.php?email=$email&codigo=$senha'>IBJMC - Confirmar e-mail</a>";
+    $mail = prepareMail($email, "Confirmação de e-mail - IBJMC", $msg);
     if($mail->Send()) {
         $_SESSION['success'] = 'emailReenviado';
         header("Location: login.php");

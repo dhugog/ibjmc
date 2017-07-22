@@ -1,6 +1,7 @@
 .box {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -13,7 +14,6 @@
 
 form {
     width: 100%;
-    padding-right: 2.5%;
     box-sizing: border-box;
 }
 
@@ -22,7 +22,7 @@ form fieldset {
     border: none;
 }
 
-form fieldset #legenda-login {
+form fieldset .main-legend {
     width: 100%;
     text-align: center;
     background-image: linear-gradient(to right, transparent, rgb(215, 210, 235), transparent), linear-gradient(to right, rgb(215, 210, 235), transparent 70%, rgb(215, 210, 235));
@@ -34,11 +34,12 @@ form fieldset #legenda-login {
     box-sizing: border-box;
 }
 
-form fieldset #legenda-cadastro {
+form fieldset .aside-legend {
     width: 100%;
     background-image: linear-gradient(45deg, rgb(230, 205, 230), transparent);
     padding: 5px;
     font-size: 14pt;
+    box-sizing: border-box;
 }
 
 form fieldset p {
@@ -107,35 +108,9 @@ form fieldset table {
     width: 100%;
 }
 
-form fieldset table tr th {
-    font-weight: normal;
-}
-
 form fieldset table tr td {
+    width: 50%;
     border: none;
-}
-
-form fieldset table tr td:nth-of-type(1) {
-    padding-right: 5px;
-}
-
-form fieldset table tr td:nth-of-type(2) {
-    padding-left: 5px;
-}
-
-@keyframes roda2 {
-    from {transform: rotate(0deg); right: 20px;}
-    to {transform: rotate(360deg); left: 20px; background-color: blue;}
-}			
-
-#teste2 {
-    position: absolute;
-    top: 120px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    animation: roda2 .8s linear infinite alternate;
 }
 
 input:-webkit-autofill,
@@ -147,14 +122,16 @@ input:-webkit-autofill:active {
 
 aside {
     width: 100%;
-    padding-left: 2.5%;
+    padding-top: 10px;
     box-sizing: border-box;
 }
 
 aside h2 {
+    width: 100%;
     background-image: linear-gradient(45deg, rgb(230, 205, 230), transparent);
     padding: 5px;
     font-size: 14pt;
+    box-sizing: border-box;
 }
 
 aside p {
@@ -163,8 +140,8 @@ aside p {
     box-sizing: border-box;
 }
 
-aside p#contato-wpp:before {
-    background-image: url('../imgs/icons/whatsapp.png');
+aside p#contato-wpp::before {
+    background-image: url('../../imgs/icons/whatsapp.png');
     background-size: 18px;
     display: inline-block;
     width: 18px;
@@ -174,8 +151,8 @@ aside p#contato-wpp:before {
     vertical-align: middle;
 }
 
-aside p#contato-email:before {
-    background-image: url('../imgs/icons/email.png');
+aside p#contato-email::before {
+    background-image: url('../../imgs/icons/email.png');
     background-size: 18px;
     display: inline-block;
     width: 18px;
@@ -185,8 +162,8 @@ aside p#contato-email:before {
     vertical-align: middle;
 }
 
-aside p#contato-tim:before {
-    background-image: url('../imgs/icons/cellphone.png');
+aside p#contato-tim::before {
+    background-image: url('../../imgs/icons/cellphone.png');
     background-size: 18px;
     display: inline-block;
     width: 18px;

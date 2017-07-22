@@ -11,7 +11,7 @@ class ConnectionFactory {
         $driver = "mysql";
         
         $nome_sistema = "IBJMC";
-        $email_sistema = "email@contato.com";
+        $email_sistema = EMAIL_CONTATO;
         
         try {
             self::$db = new PDO("$driver:host=$host; db_name=$db_name", $user, $pass);
