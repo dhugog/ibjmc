@@ -24,8 +24,8 @@
                     <form method="post" action="cadastro.php" id="login" onSubmit="toggleWrapper('block'); btnLogin.value='Entrando... Aguarde'">
                         <fieldset>
                             <legend class="main-legend">Fazer login</legend>
-                            <p>E-mail <input type="email" id="email" name="email" required /></p>
-                            <p>Senha <input type="password" id="pass" name="pass" required /></p>
+                            <p>E-mail <input type="email" id="email-login" name="email" required /></p>
+                            <p>Senha <input type="password" id="pass-login" name="pass" required /></p>
                             <p><input type="submit" value="Entrar" id="btnLogin" name="btnLogin" /></p>
                         </fieldset>
                     </form>
@@ -34,10 +34,10 @@
                             <fieldset>
                                 <legend class="aside-legend">Registrar-se</legend>
                                 <p>Nome <input type="text" id="nome" name="nome" placeholder="Nome completo" required /></p>
-                                <p>E-mail <input type="email" id="email" name="email" required /></p>
+                                <p>E-mail <input type="email" id="email-registro" name="email" required /></p>
                                 <table>
                                     <tr>
-                                        <td><p>Senha <input type="password" id="pass" name="pass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></p></td>
+                                        <td><p>Senha <input type="password" id="pass-registro" name="pass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></p></td>
                                         <td><p>Confirmar senha <input type="password" id="cpass" name="cpass" pattern=".{6,}" title="A senha deve conter pelo menos 6 caracteres." required /></p></td>
                                     </tr>
                                     <tr>

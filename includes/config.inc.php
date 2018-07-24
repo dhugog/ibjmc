@@ -6,8 +6,8 @@ ini_set("display_errors", 0);
 
 DEFINE('LIVE', true);
 
-DEFINE('EMAIL_CONTATO', 'daniel_hugo.gasparotto@hotmail.com');
-DEFINE('EMAIL_SENHA', 'miuvze5q');
+DEFINE('EMAIL_CONTATO', ''); // Email que será usado para contatar os usuarios
+DEFINE('EMAIL_SENHA', '');
 DEFINE('BASE_URI', 'C:\xampp\htdocs\IBJMC\\');
 DEFINE('BASE_URL', 'localhost/IBJMC/');
 

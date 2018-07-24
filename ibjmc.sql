@@ -20,26 +20,27 @@ USE `ibjmc`;
 --
 -- Table structure for table `versiculos`
 --
-
 DROP TABLE IF EXISTS `versiculos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `versiculos` (
   `id_versiculo` int(11) NOT NULL AUTO_INCREMENT,
   `versiculo` varchar(255) NOT NULL,
   `referencia` varchar(255) NOT NULL,
   `dataExibicao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_versiculo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2017-06-28 16:05:12
+--
+-- Table structure for table `usuarios`
+--
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `data_nascimento` date NOT NULL,
+  `sexo` enum('f', 'm') NOT NULL,
+  `membro` enum('s', 'n') NOT NULL,
+  `verificado` enum('s', 'n') NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+);
